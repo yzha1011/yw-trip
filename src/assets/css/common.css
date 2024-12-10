@@ -1,5 +1,6 @@
 :root {
   --primary-color: #ff9854;
+  --line-color: #faf8f9;
 
   --van-search-left-icon-color: var(--primary-color) !important;
 }
@@ -7,4 +8,8 @@
 body {
   font-size: 14px;
   /* font-family: 'Courier New', Courier, monospace; */
+}
+
+.bottom-gray-line {
+  border-bottom: 1px solid var(--line-color);
 }
