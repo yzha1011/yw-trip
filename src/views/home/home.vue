@@ -4,8 +4,10 @@
     <div class="banner">
       <img src="@/assets/img/home/banner.webp" alt="">
     </div>
-    <home-search-box />
-    <home-categories />
+    <homeSearchBox />
+    <homeCategories />
+    <homeContent />
+    
   </div>
 </template>
 
@@ -14,6 +16,7 @@ import useHomeStore from '@/stores/modules/home';
 import homeNavBar from './cpns/home-nav-bar.vue';
 import homeSearchBox from './cpns/home-search-box.vue';
 import homeCategories from './cpns/home-categories.vue';
+import homeContent from './cpns/home-content.vue';
 import { ref } from 'vue'
 
 const homeStore = useHomeStore()
