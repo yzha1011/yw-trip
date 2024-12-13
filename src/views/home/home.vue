@@ -6,7 +6,11 @@
     </div>
     <homeSearchBox />
     <homeCategories />
+
+    <div class="search-bar" v-if="isShowSearchBar">search-bar</div>
+
     <homeContent />
+    <!-- <button @click="moreBtnClick">load more</button> -->
     
   </div>
 </template>
@@ -17,14 +21,40 @@ import homeNavBar from './cpns/home-nav-bar.vue';
 import homeSearchBox from './cpns/home-search-box.vue';
 import homeCategories from './cpns/home-categories.vue';
 import homeContent from './cpns/home-content.vue';
-import { ref } from 'vue'
+import useScroll from '@/hooks/useScroll';
+import { watch, ref } from "vue"
 
 const homeStore = useHomeStore()
 homeStore.fetchHotSuggestData()
 homeStore.fetchCategoriesData()
+homeStore.fetchHouselistData()
+
+// const moreBtnClick = () => {
+//   homeStore.fetchHouselistData()
+// }
+
+const { isReachBottom, scrollTop } = useScroll()
+watch(isReachBottom, (newValue) => {
+  if (newValue) {
+    homeStore.fetchHouselistData().then(() => {
+      isReachBottom.value = false
+    })
+  }
+})
+
+const isShowSearchBar = ref(false)
+watch(scrollTop, (newTop) => {
+  isShowSearchBar.value = newTop > 100
+})
 </script>
 
 <style lang="less" scoped>
+
+.home {
+  padding-bottom: 60px;
+  // box-sizing: border-box;
+}
+
 .banner {
   img {
     width: 100%;

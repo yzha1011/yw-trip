@@ -7,3 +7,12 @@ export function getHomeHotSuggests() {
 export function getCategories() {
   return ywRequest.get({ url: "/home/categories" })
 }
+
+export function getHouselist(currentPage) {
+  return ywRequest.get({ 
+    url: "/home/houselist",
+    params: {
+      page: currentPage
+    }
+  })
+}
