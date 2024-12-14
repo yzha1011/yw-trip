@@ -22,7 +22,7 @@ import homeSearchBox from './cpns/home-search-box.vue';
 import homeCategories from './cpns/home-categories.vue';
 import homeContent from './cpns/home-content.vue';
 import useScroll from '@/hooks/useScroll';
-import { watch, ref } from "vue"
+import { watch, computed } from "vue"
 
 const homeStore = useHomeStore()
 homeStore.fetchHotSuggestData()
@@ -42,9 +42,13 @@ watch(isReachBottom, (newValue) => {
   }
 })
 
-const isShowSearchBar = ref(false)
-watch(scrollTop, (newTop) => {
-  isShowSearchBar.value = newTop > 100
+// const isShowSearchBar = ref(false)
+// watch(scrollTop, (newTop) => {
+//   isShowSearchBar.value = newTop > 100
+// })
+
+const isShowSearchBar = computed(() => {
+  return scrollTop.value >= 100
 })
 </script>
 
