@@ -27,15 +27,12 @@ import { ref, watch } from "vue"
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
-
+const currentIndex = ref(0)
 watch(route, (newRoute) => {
   const index =  tabbarData.findIndex(item => item.path === newRoute.path)
   if (index === -1) return
   currentIndex.value = index
 })
-
-const currentIndex = ref(0)
-
 </script>
 
 <style lang="less" scoped>
