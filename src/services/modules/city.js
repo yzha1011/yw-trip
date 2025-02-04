@@ -1,6 +1,6 @@
 import ywRequest from "@/services/request"
 
-export function getCityAll () {
+export function getCityAll() {
   return ywRequest.get({
     url: "/city/all"
   })

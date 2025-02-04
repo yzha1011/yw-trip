@@ -2,12 +2,12 @@
   <div class="city">
     <div class="top">
       <van-search 
-      v-model="searchValue" 
-      placeholder="城市/区域/位置"
-      show-action
-      action-text="取消"
-      shape="round"
-      @cancel="cancelClick"
+        v-model="searchValue" 
+        placeholder="城市/区域/位置"
+        show-action
+        action-text="取消"
+        shape="round"
+        @cancel="cancelClick"
       />
       <van-tabs v-model:active="tabActive" color="#ff9854">
         <!-- <van-tab title="国内·港澳台"></van-tab>
